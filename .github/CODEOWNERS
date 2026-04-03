@@ -2,7 +2,7 @@
 # Unless a later match takes precedence,they will be requested for review when someone opens a pull request.
 # (uncomment this line when adding an owner) * @username_or_team 
 
-* @mlcommons/wg-benchmark-infra @theoanab
+* @mlcommons/wg-benchmark-infra
 
 /.github/CODEOWNERS @mlcommons/systems
 
