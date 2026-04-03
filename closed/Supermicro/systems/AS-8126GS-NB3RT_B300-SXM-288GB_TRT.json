@@ -45,7 +45,7 @@
     "status": "available",
     "submitter": "Supermicro",
     "sw_notes": "",
-    "system_name": "NVIDIA DGX B300 (8x B300-SXM-270GB, TensorRT)",
+    "system_name": "Supermicro AS-8126GS-NB3RT(8x B300-SXM-288GB, TensorRT)",
     "system_type": "datacenter",
     "system_type_detail": "N/A"
 }
