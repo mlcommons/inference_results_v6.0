@@ -18,7 +18,15 @@ import dataclasses as dcls
 import json
 import logging
 import os
+import os
 import shutil
+
+def _mlc_copy_if_different(src, dst):
+    src_real = os.path.realpath(str(src))
+    dst_real = os.path.realpath(str(dst))
+    if src_real != dst_real:
+        shutil.copy2(src, dst)
+
 import sys
 import textwrap
 from collections import namedtuple
@@ -41,7 +49,7 @@ from ...fields import loadgen as lg_fields
 from ...fields import models as model_fields
 
 submission_checker_constants = import_from(
-    [paths.MLCOMMONS_INF_REPO / "tools" / "submission" / "submission_checker"] + sys.path,
+    [str(paths.MLCOMMONS_INF_REPO / "tools" / "submission" / "submission_checker")] + [str(p) for p in sys.path],
     "constants"
 )
 _latest_ver = max(versioning.parse(ver_key) for ver_key in submission_checker_constants.MODEL_CONFIG.keys())
@@ -432,7 +440,7 @@ class LoadgenSettings:
 
     def export_mlperf_conf(self):
         """Export mlperf.conf file."""
-        shutil.copyfile(paths.MLCOMMONS_INF_REPO / "loadgen" / "mlperf.conf", self.mlperf_conf_path)
+        _mlc_copy_if_different(paths.MLCOMMONS_INF_REPO / "loadgen" / "mlperf.conf", self.mlperf_conf_path)
 
     def export_user_conf(self):
         """Export user.conf file.

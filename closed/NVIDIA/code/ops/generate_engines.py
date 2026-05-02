@@ -1,3 +1,4 @@
+import os
 # Copyright (c) 2025, NVIDIA CORPORATION.  All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -196,8 +197,29 @@ class EngineBuilderOp(Operation):
 
                 builder = builder_cls(batch_size=c_eng.batch_size)
                 if isinstance(builder, CalibratableTensorRTEngine):
-                    builder.set_calibrator(scratch_space.path.joinpath("preprocessed_data",
-                                                                       builder.calib_data_dir))
+                    _calib_data_path = None
+                    if builder.calib_data_dir is not None:
+                        _calib_data_path = scratch_space.path.joinpath("preprocessed_data", builder.calib_data_dir)
+                    if _calib_data_path is not None and _calib_data_path.exists():
+                        builder.set_calibrator(_calib_data_path)
+                    elif not builder.need_calibration:
+                        import tensorrt as _trt
+                        class _CacheCalib(_trt.IInt8EntropyCalibrator2):
+                            def __init__(self, cache_path):
+                                super().__init__()
+                                self._cache = cache_path
+                            def get_batch_size(self): return 1
+                            def get_batch(self, names): return None
+                            def read_calibration_cache(self):
+                                if os.path.exists(self._cache):
+                                    return open(self._cache, "rb").read()
+                                return None
+                            def write_calibration_cache(self, cache): pass
+                        _cache_file = scratch_space.path / "build" / "cache" / f"{builder.__class__.__name__}.cache"
+                        if _cache_file.exists():
+                            builder.calibrator = _CacheCalib(str(_cache_file))
+                    else:
+                        builder.set_calibrator(_calib_data_path)
                 network = builder.create_network(builder.builder)
                 builder(c_eng.batch_size, eng_fpath, network)
                 ts.append((time.time(), c_eng.component))

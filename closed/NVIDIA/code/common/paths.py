@@ -37,9 +37,9 @@ VERSION_FILE: Final[Path] = _verify_path(PROJECT_BASE_DIR / "VERSION")
 CODE_DIR: Final[Path] = _verify_path(PROJECT_BASE_DIR / "code")
 BUILD_DIR: Final[Path] = _verify_path(Path(os.environ.get("BUILD_DIR", PROJECT_BASE_DIR / "build")), create_if_missing=True)
 MODEL_DIR: Final[Path] = BUILD_DIR / "models"
-SUBMODULES_DIR: Final[Path] = _verify_path(PROJECT_BASE_DIR / "3rdparty")
-TRTLLM_DIR: Final[Path] = _verify_path(SUBMODULES_DIR / "trtllm")
-MLCOMMONS_INF_REPO: Final[Path] = _verify_path(SUBMODULES_DIR / "mlc-inference")
+SUBMODULES_DIR: Final[Path] = _verify_path(PROJECT_BASE_DIR / "3rdparty", create_if_missing=True)
+TRTLLM_DIR: Final[Path] = _verify_path(SUBMODULES_DIR / "trtllm", create_if_missing=True)
+MLCOMMONS_INF_REPO: Final[Path] = _verify_path(SUBMODULES_DIR / "mlc-inference", create_if_missing=True)
 RESULTS_SUBMISSION_DIR: Final[Path] = Path(os.environ.get("ARTIFACTS_DIR", BUILD_DIR / "artifacts"))
 RESULTS_STAGING_DIR: Final[Path] = Path(os.environ.get("ARTIFACTS_STAGING", BUILD_DIR / "submission-staging"))
 

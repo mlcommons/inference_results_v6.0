@@ -19,6 +19,7 @@ from collections import namedtuple
 from pathlib import Path
 
 import argparse
+import os
 import json
 import numpy as np
 import onnx
@@ -228,7 +229,7 @@ class RN50GraphSurgeon(ONNXNetwork):
                  disable_beta1_smallk=False):
         with (Path(__file__).parent.resolve() / "onnx_node_names.json").open('r') as f:
             op_name_remap = json.load(f)
-        no_fuse = (device_type != 'gpu') or (need_calibration)
+        no_fuse = (device_type != 'gpu') or (need_calibration) or os.environ.get('MLPERF_RN50_DISABLE_FUSIONS', '0') == '1'
         super().__init__(onnx_path,
                          precision,
                          calib_cache_path=cache_file,

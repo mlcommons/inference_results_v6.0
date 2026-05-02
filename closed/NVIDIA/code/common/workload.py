@@ -94,6 +94,17 @@ class Workload:
 
         self.audit_test01_fallback_mode = False
 
+
+    @classmethod
+    def from_fields(cls, benchmark, scenario, system=None, setting=None, **kwargs):
+        from code.common.systems.system_list import DETECTED_SYSTEM as _DS
+        import code.common.constants as _C
+        if system is None:
+            system = _DS
+        if setting is None:
+            setting = _C.WorkloadSetting()
+        return cls(benchmark, scenario, system=system, setting=setting, **kwargs)
+
     def __eq__(self, other):
         """
         Check if two Workload instances are equal.

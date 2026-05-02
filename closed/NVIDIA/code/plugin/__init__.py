@@ -24,7 +24,7 @@ def load_trt_plugin_by_network(network_name: str, **kwargs)-> None:
     Load all loadable plugins for a given network from plugin map
     """
     benchmark = Benchmark.get_match(network_name)
-    for plugin in base_plugin_map[benchmark]:
+    for plugin in base_plugin_map.get(benchmark, []):
         if plugin.value.can_load(kwargs):
             plugin.value.load(kwargs)
 
@@ -34,7 +34,7 @@ def get_trt_plugin_paths_by_network(benchmark: Benchmark, **kwargs):
     Return a list of loadable plugin paths for the given network
     """
     plugins = []
-    for plugin in base_plugin_map[benchmark]:
+    for plugin in base_plugin_map.get(benchmark, []):
         if plugin.value.can_load(kwargs):
             plugins.append(plugin.value.get_full_path())
     return plugins

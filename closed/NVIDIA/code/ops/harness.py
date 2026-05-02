@@ -459,7 +459,10 @@ class ExecutableHarness(BenchmarkHarnessOp):
         Returns:
             dict: Dictionary of command line flags.
         """
-        log_dir = engine_index.wl.log_dir
+        import os as _os
+        log_dir = _os.environ.get("MLPERF_LOADGEN_LOGS_DIR", "") or engine_index.wl.log_dir
+        log_dir = Path(log_dir) if not hasattr(log_dir, "mkdir") else log_dir
+        log_dir.mkdir(parents=True, exist_ok=True)
         flag_dict = {"verbose": self.verbose,
                      "verbose_nvtx": self.verbose_nvtx,
                      "logfile_outdir": str(log_dir),

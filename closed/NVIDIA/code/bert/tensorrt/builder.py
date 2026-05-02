@@ -24,18 +24,28 @@ import numpy as np
 import tensorrt as trt
 
 from nvmitten.constants import Precision
+# _MLC_PATCHED: handle missing nvmitten classes and code.common modules
 from nvmitten.nvidia.builder import (TRTBuilder,
                                      CalibratableTensorRTEngine,
-                                     MLPerfInferenceEngine,
-                                     ONNXNetwork,
-                                     LegacyBuilder)
+                                     ONNXNetwork)
+try:
+    from nvmitten.nvidia.builder import MLPerfInferenceEngine
+except ImportError:
+    class MLPerfInferenceEngine:
+        pass
+try:
+    from nvmitten.nvidia.builder import LegacyBuilder
+except ImportError:
+    class LegacyBuilder:
+        def __init__(self, op=None):
+            self.op = op
 from nvmitten.pipeline import Operation, ScratchSpace
 from nvmitten.utils import logging
 
 from code.common import dict_get
 from code.common import paths
-from code.common.fields import Fields
-from code.common.mitten_compat import ArgDiscarder
+class ArgDiscarder:
+    pass
 from code.common.systems.system_list import DETECTED_SYSTEM
 from code.plugin import load_trt_plugin_by_network
 BERTComponent = import_module("code.bert.tensorrt.constants").BERTComponent

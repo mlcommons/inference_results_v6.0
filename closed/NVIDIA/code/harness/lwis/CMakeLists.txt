@@ -28,6 +28,7 @@ target_link_libraries(lwis
 
 target_include_directories(lwis
     PUBLIC
+        ${CUDA_INCLUDE_DIRS}
         ${LOADGEN_INCLUDE_DIR}
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../common>

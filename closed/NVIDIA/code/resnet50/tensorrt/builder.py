@@ -118,7 +118,7 @@ class ResNet50EngineBuilder(CalibratableTensorRTEngine,
                  energy_aware_kernels: bool = False,
                  **kwargs):
         super().__init__(calib_data_map=calib_data_map,
-                         calib_data_dir=calib_data_dir,
+                         
                          cache_file=cache_file,
                          **kwargs)
         self.model_path = model_path

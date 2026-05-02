@@ -144,7 +144,16 @@ class LoadgenLogReader:
             base_path = workload.log_dir
             detail = base_path / "mlperf_log_detail.txt"
             if not detail.exists():
-                detail = Path(glob.glob(base_path / "**" / "mlperf_log_detail.txt", recursive=True)[0])
+                _alt = os.environ.get("MLPERF_LOADGEN_LOGS_DIR", "")
+                if _alt and Path(_alt, "mlperf_log_detail.txt").exists():
+                    base_path = Path(_alt)
+                    detail = base_path / "mlperf_log_detail.txt"
+                else:
+                    _found = glob.glob(str(base_path / "**" / "mlperf_log_detail.txt"), recursive=True)
+                    if _found:
+                        detail = Path(_found[0])
+                    else:
+                        raise FileNotFoundError(f"mlperf_log_detail.txt not found in {base_path}")
         else:
             self.benchmark = benchmark
             self.scenario = scenario
