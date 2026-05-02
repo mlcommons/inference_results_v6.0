@@ -165,3 +165,32 @@ else()
                 harness_dlrm_v2
     )
 endif()
+
+######### BERT HARNESS ########
+execute_process(COMMAND echo "Building BERT harness...")
+add_executable(harness_bert
+    harness_bert/main_bert.cc
+    harness_bert/bert_server.cc
+    harness_bert/bert_core_vs.cc
+    common/logger.cpp
+)
+
+target_link_libraries(harness_bert
+    nvinfer
+    nvinfer_plugin
+    gflags
+    glog
+    ${CUDA_LIBRARIES}
+    lwis
+    ${LOADGEN_LIB}
+    numa
+)
+
+target_include_directories(harness_bert
+    PUBLIC
+        ${CUDA_INCLUDE_DIRS}
+        ${LOADGEN_INCLUDE_DIR}
+        ${LWIS_INCLUDE_DIR}
+        common
+        harness_bert
+)
