@@ -15,6 +15,6 @@ _base = {
     gen_engines_fields.workspace_size: 4294967296,
 }
 
-ATOMIC_EXPORTS = {
-    C.WorkloadSetting(accuracy_target=C.AccuracyTarget.k_99).short: _base,
+EXPORTS = {
+    C.WorkloadSetting(C.HarnessType.Custom, C.AccuracyTarget(0.99), C.PowerSetting.MaxP): _base,
 }

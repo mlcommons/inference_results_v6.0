@@ -24,7 +24,7 @@ _base_99 = {
 _base_999 = dict(_base_99)
 _base_999[model_fields.precision] = 'fp16'
 
-ATOMIC_EXPORTS = {
-    C.WorkloadSetting(accuracy_target=C.AccuracyTarget.k_99).short: _base_99,
-    C.WorkloadSetting(accuracy_target=C.AccuracyTarget.k_99_9).short: _base_999,
+EXPORTS = {
+    C.WorkloadSetting(C.HarnessType.Custom, C.AccuracyTarget(0.99), C.PowerSetting.MaxP): _base_99,
+    C.WorkloadSetting(C.HarnessType.Custom, C.AccuracyTarget(0.999), C.PowerSetting.MaxP): _base_999,
 }
