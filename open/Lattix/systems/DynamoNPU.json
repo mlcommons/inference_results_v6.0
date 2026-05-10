@@ -1,0 +1,23 @@
+{
+    "system_name": "DynamoNPU",
+    "submitter": "Lattix",
+    "division": "open",
+    "status": "rdi",
+    "system_type": "edge",
+    "host_processor_model_name": "Intel Core i9",
+    "host_processors_per_node": 1,
+    "host_processor_core_count": 8,
+    "host_processor_frequency": "3.5 GHz",
+    "host_memory_capacity": "32 GB",
+    "host_storage_capacity": "1 TB SSD",
+    "host_storage_type": "SSD",
+    "accelerators_per_node": 1,
+    "accelerator_model_name": "Dynamo Neuromorphic NPU",
+    "accelerator_memory_capacity": "N/A",
+    "accelerator_memory_configuration": "N/A",
+    "framework": "PyTorch 2.x",
+    "operating_system": "Ubuntu 22.04",
+    "other_software_stack": "LoadGen 6.0.13, CUDA N/A",
+    "sw_notes": "Custom platinum nanoparticle memristor-based NPU inference engine",
+    "hw_notes": "Neuromorphic NPU prototype based on Pt nanoparticle ensemble in HfO2 crossbar"
+}

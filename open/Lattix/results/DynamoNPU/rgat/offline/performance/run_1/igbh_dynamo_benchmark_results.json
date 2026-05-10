@@ -1,0 +1,56 @@
+{
+  "mode": "performance",
+  "samples": 256,
+  "accuracy": 0.7109375,
+  "validation_start": 60000,
+  "validation_end": 60256,
+  "subgraph_hops": 2,
+  "transient_steps": 20,
+  "subgraph_node_count": 8180,
+  "avg_latency_ps": 108.82864166342188,
+  "avg_latency_ns": 0.10882864166342188,
+  "physical_qps": 9188757524.813503,
+  "qps_billion": 9.188757524813504,
+  "target_path_material_energy_j": 1.8224987997500415e-11,
+  "target_path_fj_per_op": 0.0037835543880333756,
+  "target_path_material_tops_w": 264301.7378480932,
+  "target_path_ops": 4816896,
+  "full_workload_material_energy_j": 3.6918294064575393e-10,
+  "full_workload_interface_cmos_energy_j": 1.37632e-10,
+  "full_workload_npu_energy_j": 5.06814940645754e-10,
+  "full_workload_npu_fj_per_op": 0.007268216422027273,
+  "full_workload_npu_tops_w": 137585.3362001399,
+  "full_workload_ops": 69730304.0,
+  "full_workload_ops_mac": 34865152.0,
+  "subgraph_l1_material_energy_j": 3.617013426727197e-10,
+  "target_mid_output_material_energy_j": 7.481597973034233e-12,
+  "energy_scope": "Dynamo NPU only; live benchmark material energy plus live-modeled NPU interface CMOS energy; excludes host CPU/GPU/platform power",
+  "ops_per_sample": 18816,
+  "operation_basis": {
+    "macs_per_target_sample": {
+      "vmm1": 4096,
+      "vmm_mid": 4096,
+      "vmm2": 1216,
+      "total": 9408
+    },
+    "ops_per_target_sample": 18816,
+    "op_convention": "1 MAC = 2 ops",
+    "tile_shapes_input_by_output": {
+      "vmm1": [
+        64,
+        64
+      ],
+      "vmm_mid": [
+        64,
+        64
+      ],
+      "vmm2": [
+        64,
+        19
+      ]
+    }
+  },
+  "total_energy_j": 5.06814940645754e-10,
+  "fj_per_op": 0.007268216422027273,
+  "tops_w": 137585.3362001399
+}

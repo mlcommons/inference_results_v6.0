@@ -1,0 +1,188 @@
+{
+  "schema": "dynamo.igbh.non_loadgen_runtime_benchmark.measurements.v1",
+  "generated_utc": "2026-05-09T03:46:36.639569+00:00",
+  "benchmark": "IGBH_dynamo_benchmark.py",
+  "official_loadgen_run": false,
+  "authenticity_note": "This benchmark does not invoke MLPerf LoadGen. It records the Dynamo runtime-authoritative graph workload, measured live through dynamo_ensemble.integrated_runtime, with hashes and provenance for review.",
+  "command_line": "examples/IGBH_dynamo_benchmark.py --count 256 --validation-start 60000 --subgraph-hops 2 --transient-steps 20 --rebuild-l1-cache",
+  "python_executable": "/home/lattix/.venv/bin/python",
+  "python_version": "3.11.14 (main, Feb 12 2026, 00:42:50) [Clang 21.1.4 ]",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "runtime_root": "/home/lattix/Dynamo2SwappingVersions/Dynamo2/DistilledDynamo2/outputs/private_end_to_end_runs/integrated_runtime_audit_gf180_rebuilt_recalibrated_fresh_final2",
+  "runtime_authority": "dynamo_ensemble.integrated_runtime.run_integrated_forward_workload",
+  "transient_steps": 20,
+  "validation_start": 60000,
+  "requested_count": 256,
+  "subgraph_hops": 2,
+  "used_rebuild_l1_cache": true,
+  "cache_path": "/home/lattix/Dynamo2SwappingVersions/Dynamo2/DistilledDynamo2/outputs/igbh_l1_runtime_cache_subset_60000_256_2hop.npz",
+  "cache_manifest": {
+    "schema": "dynamo.igbh.l1_runtime_cache.v3",
+    "run_root": "/home/lattix/Dynamo2SwappingVersions/Dynamo2/DistilledDynamo2/outputs/private_end_to_end_runs/integrated_runtime_audit_gf180_rebuilt_recalibrated_fresh_final2",
+    "runtime_shape": [
+      64,
+      64
+    ],
+    "read_v": 0.05,
+    "weight_mapping": "conductance_differential",
+    "runtime_authority": "dynamo_ensemble.integrated_runtime.run_integrated_forward_workload",
+    "runtime_forward_workload_adapter": true,
+    "differential_branches_physicalized": true,
+    "energy_accounting_version": "live_npu_full_v4_analog_ready_energy_window",
+    "files": {
+      "omega_vmm1.pt": "4c3af917027744059a10a71a2e88779775df5e66b7aed6cf302141ed6a895690",
+      "igbh_pca_components.npy": "916d68843ce68abeece3836434949d25d3599b15e1743249a78be37948f82072",
+      "igbh_pca_mean.npy": "0c7adab9bf14a0b6b2433433f62bc1a095e99390ad69e1e4a5ba172d5d502fe7",
+      "runtime_constants/manifest.json": "667e480f9b296909e29606a40777af58dfa00320654c7238c08ee321fe5d1e55",
+      "runtime_constants/integrated_runtime_summary.json": "604ff3e1de5c694dbc59a4ea7c697729110c2d302d60a96214b2ad83390cfc23",
+      "runtime_constants/realistic_parasitics.json": "1a59cb69eb981ee824932b080c18000040675edc6b131b240366fa43ab889ff1",
+      "runtime_constants/crossbar_capacitance_map.pt": "e265979a6c5b3ddd295260b9e3f773793de8f033c6a493b855fcfebc550a86a8",
+      "runtime_constants/live_capacitance_calibration.json": "138aa411a50f8e96af3c368a4a046b07ed45c5be7aa8c4bbcd5b14ce173ba65e"
+    },
+    "cache_mode": "subset",
+    "validation_start": 60000,
+    "validation_end": 60256,
+    "sample_count": 256,
+    "subgraph_hops": 2,
+    "transient_steps": 20,
+    "subgraph_node_count": 8180,
+    "target_node_count": 256,
+    "target_nodes_sha256": "f287b4e7e0811fc07d0ba5519289a77a9267e10c778ee982b4ed05eb9b93af63",
+    "subgraph_nodes_sha256": "a2706c84a958af142bc1030d4d3b6385f2729d3a9d23283a7fcb036d8de0e2f2"
+  },
+  "artifacts": {
+    "results_json": {
+      "path": "/home/lattix/Dynamo2SwappingVersions/Dynamo2/DistilledDynamo2/igbh_dynamo_benchmark_results.json",
+      "sha256": "0d84edb1a217b59dec2f2c71bafc271519cae8b8731f565d20bd118bb8a564d6",
+      "exists": true
+    },
+    "l1_cache": {
+      "path": "/home/lattix/Dynamo2SwappingVersions/Dynamo2/DistilledDynamo2/outputs/igbh_l1_runtime_cache_subset_60000_256_2hop.npz",
+      "sha256": "3509271405aa53f87a8a6d9edf6391c87fcca2b594dde76624051ceb1d108bae",
+      "exists": true
+    },
+    "igbh_features": {
+      "path": "/home/lattix/Dynamo2SwappingVersions/Dynamo2/DistilledDynamo2/data/IGBH/tiny/processed/paper/node_feat.npy",
+      "sha256": "27cf1081778eb0b54bfe4c2cc44f3f8b97d6f6b3a8c47f63495cf334e13f9ec9",
+      "exists": true
+    },
+    "igbh_labels": {
+      "path": "/home/lattix/Dynamo2SwappingVersions/Dynamo2/DistilledDynamo2/data/IGBH/tiny/processed/paper/node_label_19.npy",
+      "sha256": "a6a6357d886583677e6ca0a9c2ff1f67e34053052025ce41028a05d1040b0aa1",
+      "exists": true
+    },
+    "igbh_edges": {
+      "path": "/home/lattix/Dynamo2SwappingVersions/Dynamo2/DistilledDynamo2/data/IGBH/tiny/processed/paper__cites__paper/edge_index.npy",
+      "sha256": "d9ecd05c834c8fc26ea92c5978868b9f6152aa81f8ecf55cbd55cc8673b9d00c",
+      "exists": true
+    },
+    "pca_components": {
+      "path": "/home/lattix/Dynamo2SwappingVersions/Dynamo2/DistilledDynamo2/igbh_pca_components.npy",
+      "sha256": "916d68843ce68abeece3836434949d25d3599b15e1743249a78be37948f82072",
+      "exists": true
+    },
+    "pca_mean": {
+      "path": "/home/lattix/Dynamo2SwappingVersions/Dynamo2/DistilledDynamo2/igbh_pca_mean.npy",
+      "sha256": "0c7adab9bf14a0b6b2433433f62bc1a095e99390ad69e1e4a5ba172d5d502fe7",
+      "exists": true
+    },
+    "omega_vmm1": {
+      "path": "/home/lattix/Dynamo2SwappingVersions/Dynamo2/DistilledDynamo2/outputs/igbh_trained_model/omega_vmm1.pt",
+      "sha256": "4c3af917027744059a10a71a2e88779775df5e66b7aed6cf302141ed6a895690",
+      "exists": true
+    },
+    "omega_mid": {
+      "path": "/home/lattix/Dynamo2SwappingVersions/Dynamo2/DistilledDynamo2/outputs/igbh_trained_model/omega_mid.pt",
+      "sha256": "66c0ff5a0bf064d5c03a53750660a75f0a15b4418c82c32a56c9a53d6be78dcb",
+      "exists": true
+    },
+    "omega_vmm2": {
+      "path": "/home/lattix/Dynamo2SwappingVersions/Dynamo2/DistilledDynamo2/outputs/igbh_trained_model/omega_vmm2.pt",
+      "sha256": "ff0e99979696dd9f162113999a71faf275680eaf02b780225a9239737e604bd6",
+      "exists": true
+    },
+    "runtime_manifest": {
+      "path": "/home/lattix/Dynamo2SwappingVersions/Dynamo2/DistilledDynamo2/outputs/private_end_to_end_runs/integrated_runtime_audit_gf180_rebuilt_recalibrated_fresh_final2/runtime_constants/manifest.json",
+      "sha256": "667e480f9b296909e29606a40777af58dfa00320654c7238c08ee321fe5d1e55",
+      "exists": true
+    },
+    "runtime_summary": {
+      "path": "/home/lattix/Dynamo2SwappingVersions/Dynamo2/DistilledDynamo2/outputs/private_end_to_end_runs/integrated_runtime_audit_gf180_rebuilt_recalibrated_fresh_final2/runtime_constants/integrated_runtime_summary.json",
+      "sha256": "604ff3e1de5c694dbc59a4ea7c697729110c2d302d60a96214b2ad83390cfc23",
+      "exists": true
+    },
+    "runtime_parasitics": {
+      "path": "/home/lattix/Dynamo2SwappingVersions/Dynamo2/DistilledDynamo2/outputs/private_end_to_end_runs/integrated_runtime_audit_gf180_rebuilt_recalibrated_fresh_final2/runtime_constants/realistic_parasitics.json",
+      "sha256": "1a59cb69eb981ee824932b080c18000040675edc6b131b240366fa43ab889ff1",
+      "exists": true
+    },
+    "runtime_capacitance_map": {
+      "path": "/home/lattix/Dynamo2SwappingVersions/Dynamo2/DistilledDynamo2/outputs/private_end_to_end_runs/integrated_runtime_audit_gf180_rebuilt_recalibrated_fresh_final2/runtime_constants/crossbar_capacitance_map.pt",
+      "sha256": "e265979a6c5b3ddd295260b9e3f773793de8f033c6a493b855fcfebc550a86a8",
+      "exists": true
+    },
+    "runtime_capacitance_calibration": {
+      "path": "/home/lattix/Dynamo2SwappingVersions/Dynamo2/DistilledDynamo2/outputs/private_end_to_end_runs/integrated_runtime_audit_gf180_rebuilt_recalibrated_fresh_final2/runtime_constants/live_capacitance_calibration.json",
+      "sha256": "138aa411a50f8e96af3c368a4a046b07ed45c5be7aa8c4bbcd5b14ce173ba65e",
+      "exists": true
+    }
+  },
+  "results_json": "/home/lattix/Dynamo2SwappingVersions/Dynamo2/DistilledDynamo2/igbh_dynamo_benchmark_results.json",
+  "results_sha256": "0d84edb1a217b59dec2f2c71bafc271519cae8b8731f565d20bd118bb8a564d6",
+  "results": {
+    "mode": "performance",
+    "samples": 256,
+    "accuracy": 0.7109375,
+    "validation_start": 60000,
+    "validation_end": 60256,
+    "subgraph_hops": 2,
+    "transient_steps": 20,
+    "subgraph_node_count": 8180,
+    "avg_latency_ps": 108.82864166342188,
+    "avg_latency_ns": 0.10882864166342188,
+    "physical_qps": 9188757524.813503,
+    "qps_billion": 9.188757524813504,
+    "target_path_material_energy_j": 1.8224987997500415e-11,
+    "target_path_fj_per_op": 0.0037835543880333756,
+    "target_path_material_tops_w": 264301.7378480932,
+    "target_path_ops": 4816896,
+    "full_workload_material_energy_j": 3.6918294064575393e-10,
+    "full_workload_interface_cmos_energy_j": 1.37632e-10,
+    "full_workload_npu_energy_j": 5.06814940645754e-10,
+    "full_workload_npu_fj_per_op": 0.007268216422027273,
+    "full_workload_npu_tops_w": 137585.3362001399,
+    "full_workload_ops": 69730304.0,
+    "full_workload_ops_mac": 34865152.0,
+    "subgraph_l1_material_energy_j": 3.617013426727197e-10,
+    "target_mid_output_material_energy_j": 7.481597973034233e-12,
+    "energy_scope": "Dynamo NPU only; live benchmark material energy plus live-modeled NPU interface CMOS energy; excludes host CPU/GPU/platform power",
+    "ops_per_sample": 18816,
+    "operation_basis": {
+      "macs_per_target_sample": {
+        "vmm1": 4096,
+        "vmm_mid": 4096,
+        "vmm2": 1216,
+        "total": 9408
+      },
+      "ops_per_target_sample": 18816,
+      "op_convention": "1 MAC = 2 ops",
+      "tile_shapes_input_by_output": {
+        "vmm1": [
+          64,
+          64
+        ],
+        "vmm_mid": [
+          64,
+          64
+        ],
+        "vmm2": [
+          64,
+          19
+        ]
+      }
+    },
+    "total_energy_j": 5.06814940645754e-10,
+    "fj_per_op": 0.007268216422027273,
+    "tops_w": 137585.3362001399
+  }
+}

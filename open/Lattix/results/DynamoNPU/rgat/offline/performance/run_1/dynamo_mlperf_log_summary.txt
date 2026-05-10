@@ -1,0 +1,18 @@
+Dynamo IGBH Runtime Benchmark Summary
+====================================
+Generated UTC: 2026-05-09T03:46:36.639569+00:00
+Official MLPerf LoadGen run: no
+Runtime authority: dynamo_ensemble.integrated_runtime.run_integrated_forward_workload
+Command: examples/IGBH_dynamo_benchmark.py --count 256 --validation-start 60000 --subgraph-hops 2 --transient-steps 20 --rebuild-l1-cache
+Samples: 256
+Accuracy: 71.094%
+Average runtime tile latency: 108.828642 ps
+Physical runtime QPS: 9,188,757,525
+Full workload Dynamo NPU energy: 0.506814941 nJ
+Full workload Dynamo NPU cost: 0.007268216 fJ/op
+Full workload Dynamo NPU efficiency: 137,585.336200 TOPS/W
+Target-path material efficiency: 264,301.737848 TOPS/W
+Operation basis: {"macs_per_target_sample": {"total": 9408, "vmm1": 4096, "vmm2": 1216, "vmm_mid": 4096}, "op_convention": "1 MAC = 2 ops", "ops_per_target_sample": 18816, "tile_shapes_input_by_output": {"vmm1": [64, 64], "vmm2": [64, 19], "vmm_mid": [64, 64]}}
+Energy scope: Dynamo NPU only; live benchmark material energy plus live-modeled NPU interface CMOS energy; excludes host CPU/GPU/platform power
+Measurements JSON: /home/lattix/Dynamo2SwappingVersions/Dynamo2/DistilledDynamo2/outputs/igbh_dynamo_benchmark_logs/dynamo_measurements.json
+Results JSON SHA256: 0d84edb1a217b59dec2f2c71bafc271519cae8b8731f565d20bd118bb8a564d6
